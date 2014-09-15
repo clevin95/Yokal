@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileView" customModule="Yokal2_0" customModuleProvider="target">
+            <connections>
+                <outlet property="piChart" destination="sh7-nh-MA0" id="5s9-DH-2mq"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="367" height="888"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hadlyme CT, USA" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYG-7x-S4x">
+                    <rect key="frame" x="8" y="69" width="136.5" height="20"/>
+                    <color key="tintColor" red="0.80848760190000002" green="0.24118161099999999" blue="0.37704723709999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" red="0.80848760190000002" green="0.24118161099999999" blue="0.37704723709999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRX-5c-6Ev">
+                    <rect key="frame" x="8" y="9" width="132" height="58"/>
+                    <color key="tintColor" red="0.80848760190000002" green="0.24118161099999999" blue="0.37704723709999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="SRX-5c-6Ev" secondAttribute="height" multiplier="66:29" id="CNf-0b-3mO"/>
+                        <constraint firstAttribute="height" constant="58" id="kUZ-n0-lIz"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="42"/>
+                    <color key="textColor" red="0.80848760190000002" green="0.24118161099999999" blue="0.37704723709999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="highlightedColor" red="0.2941179257" green="0.29142061339999997" blue="0.80848760190000002" alpha="1" colorSpace="calibratedRGB"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Stars:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fy7-fA-yRO">
+                    <rect key="frame" x="8" y="93" width="41" height="18"/>
+                    <color key="tintColor" red="0.80848760190000002" green="0.24118161099999999" blue="0.37704723709999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                    <color key="textColor" red="0.80848760190000002" green="0.24118161099999999" blue="0.37704723709999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Followers:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCl-bn-jNw">
+                    <rect key="frame" x="8" y="119" width="68.5" height="17.5"/>
+                    <color key="tintColor" red="0.80848760190000002" green="0.24118161099999999" blue="0.37704723709999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
+                    <color key="textColor" red="0.80848760190000002" green="0.24118161099999999" blue="0.37704723709999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sh7-nh-MA0">
+                    <rect key="frame" x="24" y="261" width="321" height="321"/>
+                    <color key="backgroundColor" red="0.80848760190000002" green="0.24118161099999999" blue="0.37704723709999999" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8D0-8A-zIl">
+                    <rect key="frame" x="83" y="117" width="20" height="21"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" red="0.80848760190000002" green="0.24118161099999999" blue="0.37704723709999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="usaFlag.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="hN5-jK-wkp">
+                    <rect key="frame" x="262" y="9" width="97" height="58"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="58" id="5Fy-s2-XoH"/>
+                        <constraint firstAttribute="width" secondItem="hN5-jK-wkp" secondAttribute="height" multiplier="97:58" id="SM3-pQ-9hL"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="18" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DmN-kK-Ygc">
+                    <rect key="frame" x="54" y="92" width="20" height="21"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" red="0.80848760190000002" green="0.24118161099999999" blue="0.37704723709999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zfd-46-Odq">
+                    <rect key="frame" x="24" y="612" width="321" height="234"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="234" id="tGc-w9-kxl"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7hY-yA-zCZ">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="zfd-46-Odq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="24" id="6K7-Ud-jkD"/>
+                <constraint firstItem="sh7-nh-MA0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="24" id="ApI-dJ-ENx"/>
+                <constraint firstItem="nYG-7x-S4x" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="69" id="FVm-nY-2Fp"/>
+                <constraint firstItem="SRX-5c-6Ev" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="ORm-i9-CSR"/>
+                <constraint firstItem="YCl-bn-jNw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="PeI-5D-LPV"/>
+                <constraint firstItem="8D0-8A-zIl" firstAttribute="leading" secondItem="YCl-bn-jNw" secondAttribute="trailing" constant="6.5" id="RZc-Df-l1x"/>
+                <constraint firstAttribute="trailing" secondItem="sh7-nh-MA0" secondAttribute="trailing" constant="22" id="TFr-vc-UPc"/>
+                <constraint firstItem="Fy7-fA-yRO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="TjQ-Ck-tlw"/>
+                <constraint firstItem="sh7-nh-MA0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="261" id="UNL-S2-ev8"/>
+                <constraint firstItem="Fy7-fA-yRO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="93" id="UYM-9o-0YL"/>
+                <constraint firstItem="YCl-bn-jNw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="119" id="VKC-5m-kQ6"/>
+                <constraint firstItem="nYG-7x-S4x" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="YYG-NO-9vG"/>
+                <constraint firstItem="8D0-8A-zIl" firstAttribute="centerY" secondItem="YCl-bn-jNw" secondAttribute="centerY" constant="-0.5" id="ZX9-nn-pe3"/>
+                <constraint firstAttribute="trailing" secondItem="zfd-46-Odq" secondAttribute="trailing" constant="22" id="hQ0-ax-F1l"/>
+                <constraint firstItem="zfd-46-Odq" firstAttribute="top" secondItem="sh7-nh-MA0" secondAttribute="bottom" constant="30" id="jt4-Sl-m6k"/>
+                <constraint firstAttribute="bottom" secondItem="zfd-46-Odq" secondAttribute="bottom" constant="42" id="khb-G4-y3j"/>
+                <constraint firstItem="Fy7-fA-yRO" firstAttribute="centerY" secondItem="DmN-kK-Ygc" secondAttribute="centerY" constant="-0.25" id="qSK-Hc-uE7"/>
+                <constraint firstAttribute="trailing" secondItem="hN5-jK-wkp" secondAttribute="trailing" constant="8" id="sdf-nD-xr6"/>
+                <constraint firstItem="DmN-kK-Ygc" firstAttribute="leading" secondItem="Fy7-fA-yRO" secondAttribute="trailing" constant="5.5" id="uKd-ho-aGT"/>
+                <constraint firstItem="hN5-jK-wkp" firstAttribute="centerY" secondItem="SRX-5c-6Ev" secondAttribute="centerY" id="wRO-Dd-N3g"/>
+                <constraint firstItem="SRX-5c-6Ev" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="9" id="yyh-hq-p8C"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="219.5" y="372"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="usaFlag.jpeg" width="309" height="163"/>
+    </resources>
+</document>
