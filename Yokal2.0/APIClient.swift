@@ -7,7 +7,7 @@
 //
 
 import UIKit
-let homeURL:String = "http://localhost:8080/api/" //"http://yokalrest.herokuapp.com/api/"  "http://beingthere.herokuapp.com/"
+let homeURL:String = "http://localhost:8080/api/" // "http://yokalrest.herokuapp.com/api/" //"http://beingthere.herokuapp.com/"
 class APIClient: NSObject {
     class func getCloudPosts (arrayPassback:((NSArray) -> Void)){
         let url = NSURL(string: homeURL + "travellers/posts")
@@ -17,7 +17,6 @@ class APIClient: NSObject {
         }
         task.resume()
     }
-    
     class func getCloudPostsForTraveller (travellerID:NSString, arrayPassback:((NSArray) -> Void)){
         let url = NSURL(string: homeURL + "travellers/" + travellerID + "/posts")
         let task = NSURLSession.sharedSession().dataTaskWithURL(url) {(data, response, error) in
@@ -53,10 +52,7 @@ class APIClient: NSObject {
     class func validateTraveller (email:String, password:String, arrayPassback:((NSDictionary?) -> Void)){
         let travellerDataString = "email=" + email + "&password=" + password
         let url = NSURL(string: homeURL + "travellers?" + travellerDataString)
-        
         print(url)
-        
-        
         var session:NSURLSession = NSURLSession.sharedSession()
         var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
         let validationDictionary = ["email" : email, "password" : password]
@@ -73,6 +69,15 @@ class APIClient: NSObject {
                     }
                 else {
                     arrayPassback(outputDictionary)
+//                    var mutableDictionary:NSMutableDictionary = outputDictionary.mutableCopy() as NSMutableDictionary
+//                    print(mutableDictionary)
+//                    var travellerID:String = (mutableDictionary["unique_id"] as NSNumber).stringValue
+//                    self.getProfileImageForTravellerID(travellerID, successPassback: { (testImage:NSData) -> Void in
+//                        print(testImage)
+//                        mutableDictionary["profilepicture"] = testImage
+//                        
+//                    })
+
                 }
             }
         })
@@ -105,8 +110,9 @@ class APIClient: NSObject {
             if ((error) != nil){
                 print(error)
             }else {
-                let responseID:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as NSDictionary
-                let userID:NSNumber = responseID["unique_id"] as NSNumber
+                let responseID:NSDictionary? = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as NSDictionary?
+                print(responseID)
+                let userID:NSNumber = responseID!["unique_id"] as NSNumber
                 //let userID:Int = userID
                 
                 idPassback(userID.stringValue)
@@ -114,16 +120,12 @@ class APIClient: NSObject {
             })
         task.resume()
     }
+    
     class func updateRemoteProfileImage(traveller:Traveller, successPassback:((Void) -> Void)) {
         let url = NSURL(string: homeURL + "travellers/" + traveller.uniqueID!)
         var session:NSURLSession = NSURLSession.sharedSession()
-        
-        print(traveller.profilePicture)
-        //let imageDataString = NSString(data: traveller.profilePicture, encoding: NSUTF8StringEncoding)
-        let byteArray:NSString = traveller.profilePicture!.base64EncodedStringWithOptions(nil)
         var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
         var error:NSError?
-
         request.HTTPBody = traveller.profilePicture!
         request.HTTPMethod = "PUT"
         request.addValue("image/jpeg", forHTTPHeaderField: "Content-Type")
@@ -131,6 +133,25 @@ class APIClient: NSObject {
         let task = session.dataTaskWithRequest(request, completionHandler: {(data,response,error) in
             successPassback()
             })
+        task.resume()
+    }
+    
+    class func getProfileImageForTravellerID(travellerID:String, successPassback:((NSData?) -> Void)) {
+        let url = NSURL(string: homeURL + "travellers/" + travellerID + "/profile_picture")
+        var session:NSURLSession = NSURLSession.sharedSession()
+        var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
+        var error:NSError?
+        request.HTTPMethod = "GET"
+        print(error)
+        let task = session.dataTaskWithRequest(request, completionHandler: {(data,response,error) in
+            print(error)
+            print(data)
+            if (error != nil) {
+                print(error)
+                successPassback(nil)
+            }
+            successPassback(data)
+        })
         task.resume()
     }
 }

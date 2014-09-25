@@ -35,14 +35,14 @@ class BottomMenuViewController: UIViewController, UINavigationControllerDelegate
     }
 
     func updateProfile () {
-        NSOperationQueue.mainQueue().addOperationWithBlock({
-            if let parentCoordinator:MenuCoordinatorViewController = self.parentViewController as? MenuCoordinatorViewController {
-                parentCoordinator.profileImageView.image = UIImage(data:self.store.currentTraveller!.profilePicture!)
-                if parentCoordinator.profileImageView.image == nil {
-                    parentCoordinator.profileImageView.image = UIImage(named: "defaultImage.jpg")
-                }
-            }
+        if let parentCoordinator:MenuCoordinatorViewController = self.parentViewController as? MenuCoordinatorViewController {
+            parentCoordinator.profileImageView.image = UIImage(named: "defaultImage.jpg")
+            self.store.currentTraveller!.getProfilePictureImage({ (profileImage) -> Void in
+                NSOperationQueue.mainQueue().addOperationWithBlock({
+                    parentCoordinator.profileImageView.image = profileImage
+                })
             })
+        }
     }
     
     override func viewDidLayoutSubviews()  {
@@ -71,7 +71,16 @@ class BottomMenuViewController: UIViewController, UINavigationControllerDelegate
         let newProfileImage:UIImage = info[UIImagePickerControllerOriginalImage] as UIImage
         let imageURL:NSURL = info[UIImagePickerControllerReferenceURL] as NSURL
         var error:NSError? = nil
-        let imageData:NSData = UIImageJPEGRepresentation(newProfileImage, 0.05)
+        
+        var newHeight:CGFloat = newProfileImage.size.height / 30.0;
+        var newWidth:CGFloat = newProfileImage.size.width / 30.0;
+        var newSize:CGSize = CGSizeMake(newWidth, newHeight);
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0);
+        newProfileImage.drawInRect(CGRectMake(0, 0, newSize.width, newSize.height))
+        var resizedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        let imageData:NSData = UIImagePNGRepresentation(resizedImage)
         if (store.currentTraveller != nil){
             store.currentTraveller!.profilePicture = imageData
             updateProfile()
@@ -102,7 +111,6 @@ class BottomMenuViewController: UIViewController, UINavigationControllerDelegate
     
     func beginSearchingAnimation (){
         fadeOutView(postFilterSegment!)
-        
         if let parentCoordinator:MenuCoordinatorViewController = parentViewController as? MenuCoordinatorViewController {
             fadeOutView(parentCoordinator.profileImageView)
         }
@@ -116,7 +124,6 @@ class BottomMenuViewController: UIViewController, UINavigationControllerDelegate
             fadeInView(parentCoordinator.profileImageView)
         }
     }
-
 }
 
 protocol BottomMenuDelegate {

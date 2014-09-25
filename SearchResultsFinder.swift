@@ -13,7 +13,7 @@ class SearchResultsFinder: NSObject {
     
     class func getAllAddressesForString (searchString:String, arrayPassback:((NSArray) -> Void)) {
         arrayPassback([])
-        /*
+
         let allowedCharacters:NSCharacterSet = NSCharacterSet.URLHostAllowedCharacterSet()
         
         let searchString:String = searchString.stringByAddingPercentEncodingWithAllowedCharacters(allowedCharacters)!
@@ -39,7 +39,6 @@ class SearchResultsFinder: NSObject {
         }
         task.resume()
 
-*/
     }
 
     

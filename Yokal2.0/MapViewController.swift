@@ -1,4 +1,4 @@
-//
+ //
 //  MapViewController.swift
 //  Yokal2.0
 //
@@ -42,18 +42,21 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, postFetche
             }
             let profileImageView:UIImageView = UIImageView(frame: annotationView!.frame)
             let store:DataStore = DataStore.sharedInstance
-            if store.profileImageDic[tipAnnotation.post.traveller.uniqueID!] == nil {
-                let profileImage:UIImage? = UIImage(data: tipAnnotation.post.traveller.profilePicture!)
-                if profileImage == nil {
-                    annotationView!.image = UIImage(named: "defaultImage.jpg")
-                }else {
-                    store.profileImageDic[tipAnnotation.post.traveller.uniqueID!] = profileImage
-                    annotationView!.image = profileImage
-                }
-            }else {
-                let profileImage = store.profileImageDic[tipAnnotation.post.traveller.uniqueID!]
-                annotationView!.image = profileImage
-            }
+            
+            
+            tipAnnotation.post.traveller.getProfilePictureImage({ (profileImage) -> Void in
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    annotationView!.image = profileImage;
+                    annotationView!.clipsToBounds = true
+                    annotationView!.contentMode = UIViewContentMode.ScaleAspectFill
+                    annotationView!.layer.borderWidth = 2.5
+                    annotationView!.layer.borderColor = UIColor.myPeach().CGColor
+                    annotationView!.frame = CGRectMake(0, 0, 45, 45)
+                    annotationView!.frame = CGRectMake(0, 0, 45, 45)
+                    annotationView!.layer.cornerRadius = annotationView!.frame.size.height / 2
+                })
+            })
+ 
             annotationView!.clipsToBounds = true
             annotationView!.contentMode = UIViewContentMode.ScaleAspectFill
             annotationView!.layer.borderWidth = 2.5
@@ -104,7 +107,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, postFetche
         annotationSet.append(excludeAnnotation)
         var postsArray:[Post] = []
         let objects = mapOfWorld.annotationsInMapRect(mapOfWorld.visibleMapRect).allObjects
-        for i in 0...objects.count {
+        for var i = 0; i < objects.count; i++ {
             if let tipAnnotation:TipAnnotation = objects[i] as? TipAnnotation {
                 if tipAnnotation != excludeAnnotation {
                     annotationSet.append(tipAnnotation)
@@ -116,10 +119,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, postFetche
     }
     
     func deselectCurrentlySelected () {
+        
+        
         let allAnnotations = mapOfWorld.selectedAnnotations;
-        for i in 0...allAnnotations.count {
-            let selectedAnnotation:MKAnnotation = allAnnotations[i] as MKAnnotation
-            mapOfWorld.deselectAnnotation(selectedAnnotation, animated: false)
+        if (allAnnotations != nil) {
+            for (var i = 0; i < allAnnotations.count; i = i + 1) {
+                let selectedAnnotation:MKAnnotation = allAnnotations[i] as MKAnnotation
+                mapOfWorld.deselectAnnotation(selectedAnnotation, animated: false)
+            }
         }
     }
 

@@ -51,9 +51,11 @@ class LeftMenuViewController: UIViewController, UITableViewDataSource, UITableVi
             if store.profileImageDic[id!] != nil{
                 cell.imageView!.image = store.profileImageDic[id!]
             }else {
-                
-                cell.imageView!.image = UIImage(data:travellers[indexPath.row]!.profilePicture!)
-                store.profileImageDic[id!] = cell.imageView!.image
+                if ((travellers[indexPath.row]!.profilePicture) != nil) {
+                    var profileImage:UIImage? = UIImage(data:travellers[indexPath.row]!.profilePicture!)
+                    cell.imageView!.image = profileImage
+                    store.profileImageDic[id!] = cell.imageView!.image
+                }
             }
         }
         cell.textLabel!.textColor = UIColor.whiteColor()

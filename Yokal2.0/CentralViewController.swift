@@ -29,7 +29,6 @@ class CentralViewController: UIViewController, makePostDelegate, BottomMenuDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         setChildControllerDelegates()
-        
     }
     
     override func viewDidAppear(animated: Bool) {

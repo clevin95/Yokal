@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 
 @objc(Traveller)
@@ -18,6 +19,7 @@ class Traveller: NSManagedObject {
     @NSManaged var profilePicture: NSData?
     @NSManaged var uniqueID: String?
     @NSManaged var posts: NSSet?
-    
+    var profilePictureImage:UIImage?
+    var hasImage:Bool = true
 }
 

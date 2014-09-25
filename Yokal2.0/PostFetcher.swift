@@ -44,7 +44,7 @@ class PostFetcher: NSObject , NSFetchedResultsControllerDelegate {
         postFetch.sortDescriptors = [sortById]
         postFetch.returnsObjectsAsFaults = false
         let posts = store.managedObjectContext.executeFetchRequest(postFetch, error: nil)
-        for i in 0...posts!.count {
+        for var i = 0; i < posts!.count; i++ {
             let savedPost = posts![i] as Post
             delegate?.addPost(savedPost)
             

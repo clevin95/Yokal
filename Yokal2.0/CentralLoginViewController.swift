@@ -32,9 +32,9 @@ class CentralLoginViewController: UIViewController {
         self.view.insertSubview(effectView, atIndex: 0)
         scroller.showsHorizontalScrollIndicator = false
         
-        let scrollerHeight = view.frame.height / 2;
+        let scrollerHeight = view.frame.height / 1.5;
         
-        let scrollerStart:CGFloat = 140
+        let scrollerStart:CGFloat = 200
         scroller.frame = CGRect(x: 0, y:scrollerStart, width: view.frame.width, height: scrollerHeight)
         let signUpView:UIView = UIView(frame: CGRect(x: 0, y: 0, width:view.frame.width, height: scrollerHeight))
         let loginView:UIView = UIView(frame: CGRectOffset(signUpView.frame, view.frame.width, 0))
@@ -80,17 +80,12 @@ class CentralLoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-
     @IBAction func signUpTapped(sender: AnyObject) {
         
         UIView.animateWithDuration(0.2, animations: {
              self.scroller.contentOffset = CGPoint(x: 0, y: 0)
         })
     }
-    
-
-    
     
     @IBAction func submitTapped(sender: AnyObject) {
         
@@ -99,7 +94,6 @@ class CentralLoginViewController: UIViewController {
             signUpController!.submitAction()
         }
         else {
-            
             loginController!.submitTapped()
         }
     }

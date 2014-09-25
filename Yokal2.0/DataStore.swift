@@ -64,8 +64,8 @@ class DataStore: NSObject {
         if let latitudeNum:NSNumber = postDic["latitude"] as? NSNumber {
             cloudPost.latitude = latitudeNum.floatValue;
         }
-        if let latitudeNum:NSNumber = postDic["longitude"] as? NSNumber {
-            cloudPost.latitude = latitudeNum.floatValue;
+        if let longitudeNum:NSNumber = postDic["longitude"] as? NSNumber {
+            cloudPost.longitude = longitudeNum.floatValue;
         }
         if let traveller:Traveller? = travellerDictionary[(postDic["poster_id"] as NSNumber!).stringValue] as Traveller!! {
              cloudPost.traveller = traveller!
@@ -142,20 +142,18 @@ class DataStore: NSObject {
         signedInTraveller.email = travellerDictionary["email"] as? NSString
         signedInTraveller.uniqueID = (travellerDictionary["unique_id"] as NSNumber).stringValue
         
-       // print(travellerDictionary["profilepicture"])
     
         
         
-        if let imageString:NSString = travellerDictionary["profilepicture"] as?  NSString {
-            let data = NSData(base64EncodedString: imageString, options: nil)
-            
-            
-            
-            
-            signedInTraveller.profilePicture = data
+        if let imageData:NSData = travellerDictionary["profilepicture"] as? NSData {
+            //let data = NSData(base64EncodedString: imageString, options: nil)
+            signedInTraveller.profilePicture = imageData
         }
     
         //let data = NSData(base64EncodedString: imageArray, options: nil)
+        
+        
+        
         
         
         

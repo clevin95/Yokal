@@ -13,6 +13,7 @@
 		6F2C6B9419858028000F2460 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2C6B9319858028000F2460 /* SignUpViewController.swift */; };
 		6F2C6B9619858BE4000F2460 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2C6B9519858BE4000F2460 /* LoginViewController.swift */; };
 		6F2C6B9819858E26000F2460 /* CentralLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2C6B9719858E26000F2460 /* CentralLoginViewController.swift */; };
+		6F37CE8019CFBFDF002E0EC5 /* Yokal_Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F37CE7F19CFBFDF002E0EC5 /* Yokal_Logo.png */; };
 		6F3E7915199460A700F2C276 /* southAfricaRoad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6F3E7914199460A700F2C276 /* southAfricaRoad.jpg */; };
 		6F3E79191994735400F2C276 /* sriLanka.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6F3E79181994735400F2C276 /* sriLanka.jpg */; };
 		6F3E791B19950F4100F2C276 /* composeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F3E791A19950F4100F2C276 /* composeIcon.png */; };
@@ -54,6 +55,7 @@
 		6FCBAB9A19994C96005100E7 /* friends.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FCBAB9919994C96005100E7 /* friends.png */; };
 		6FCBAB9C19994CAA005100E7 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FCBAB9B19994CAA005100E7 /* user.png */; };
 		6FCBAB9E19994CB6005100E7 /* globe_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FCBAB9D19994CB6005100E7 /* globe_1.png */; };
+		6FD685F119D1B2560074C192 /* TravellerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD685F019D1B2560074C192 /* TravellerExtension.swift */; };
 		6FE65527198ED0F60071197D /* PostDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE65526198ED0F60071197D /* PostDisplayViewController.swift */; };
 		6FF2BFEE1982973100CB9B8A /* BottomMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF2BFED1982973100CB9B8A /* BottomMenuViewController.swift */; };
 		6FF2BFF01982B31F00CB9B8A /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF2BFEF1982B31F00CB9B8A /* LeftMenuViewController.swift */; };
@@ -79,6 +81,7 @@
 		6F2C6B9319858028000F2460 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		6F2C6B9519858BE4000F2460 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6F2C6B9719858E26000F2460 /* CentralLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralLoginViewController.swift; sourceTree = "<group>"; };
+		6F37CE7F19CFBFDF002E0EC5 /* Yokal_Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Yokal_Logo.png; sourceTree = "<group>"; };
 		6F3E7914199460A700F2C276 /* southAfricaRoad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = southAfricaRoad.jpg; sourceTree = "<group>"; };
 		6F3E79181994735400F2C276 /* sriLanka.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sriLanka.jpg; sourceTree = "<group>"; };
 		6F3E791A19950F4100F2C276 /* composeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = composeIcon.png; sourceTree = "<group>"; };
@@ -123,6 +126,7 @@
 		6FCBAB9919994C96005100E7 /* friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friends.png; sourceTree = "<group>"; };
 		6FCBAB9B19994CAA005100E7 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		6FCBAB9D19994CB6005100E7 /* globe_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globe_1.png; sourceTree = "<group>"; };
+		6FD685F019D1B2560074C192 /* TravellerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravellerExtension.swift; sourceTree = "<group>"; };
 		6FE65526198ED0F60071197D /* PostDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDisplayViewController.swift; sourceTree = "<group>"; };
 		6FF2BFED1982973100CB9B8A /* BottomMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomMenuViewController.swift; sourceTree = "<group>"; };
 		6FF2BFEF1982B31F00CB9B8A /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 				6FCBAB9F19994D15005100E7 /* icons */,
 				6F5B5B6E199699BE007D3249 /* darkStar.png */,
 				6F5B5B6C199699B5007D3249 /* lightStar.png */,
+				6F37CE7F19CFBFDF002E0EC5 /* Yokal_Logo.png */,
 				6F3E791A19950F4100F2C276 /* composeIcon.png */,
 				6F3E7914199460A700F2C276 /* southAfricaRoad.jpg */,
 				6FBB6309198E8D4D00AD4B1D /* usaFlag.jpeg */,
@@ -232,6 +237,7 @@
 				6F642C1D19940875003ADA0B /* LoginAnimatedTransitioning.swift */,
 				6F0C6765197C77890093C8D7 /* Post.swift */,
 				6F2816EB1989F120006FB8F1 /* Traveller.swift */,
+				6FD685F019D1B2560074C192 /* TravellerExtension.swift */,
 				6FB3B43919847F54002EFD88 /* TipAnnotation.swift */,
 				6F4C931F197C6B4C00956532 /* PostAnnotation.swift */,
 				6F9EEF681981600D0038EFB1 /* SearchResultsFinder.swift */,
@@ -376,6 +382,7 @@
 				6F3E7915199460A700F2C276 /* southAfricaRoad.jpg in Resources */,
 				6F4C9306197C678C00956532 /* Images.xcassets in Resources */,
 				6F75DB201985EFA50054EE4D /* backgroundScreen.png in Resources */,
+				6F37CE8019CFBFDF002E0EC5 /* Yokal_Logo.png in Resources */,
 				6FCBAB9E19994CB6005100E7 /* globe_1.png in Resources */,
 				6F5B5B6719956C08007D3249 /* ProfileView.xib in Resources */,
 				6FBB630A198E8D4D00AD4B1D /* usaFlag.jpeg in Resources */,
@@ -423,6 +430,7 @@
 				6FC6FEC51980558F0035ABF4 /* SearchViewController.swift in Sources */,
 				6F2C6B9619858BE4000F2460 /* LoginViewController.swift in Sources */,
 				6F4C92FC197C678C00956532 /* AppDelegate.swift in Sources */,
+				6FD685F119D1B2560074C192 /* TravellerExtension.swift in Sources */,
 				6F2816EC1989F120006FB8F1 /* Traveller.swift in Sources */,
 				6FF2BFF41982B33C00CB9B8A /* RightMenuViewController.swift in Sources */,
 				6FF2BFEE1982973100CB9B8A /* BottomMenuViewController.swift in Sources */,
