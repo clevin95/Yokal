@@ -13,11 +13,15 @@ extension Traveller{
     
    /// var profileImageAsImage:Image?
     func getProfilePictureImage(imagePassback:((UIImage?) -> Void)) {
+        
+        
         if (profilePictureImage != nil){
             imagePassback(profilePictureImage!)
         }
         else if (hasImage){
             APIClient.getProfileImageForTravellerID(uniqueID!, successPassback: { (imageData) -> Void in
+                
+                
                 if (imageData != nil) {
                     self.profilePicture = imageData;
                     self.profilePictureImage = UIImage(data: imageData!);

@@ -23,5 +23,5 @@ class Traveller: NSManagedObject {
     @NSManaged var facebook_id: String?
     @NSManaged var posts: NSSet?
     var profilePictureImage:UIImage?
-    var hasImage:Bool = false
+    var hasImage:Bool = true
 }

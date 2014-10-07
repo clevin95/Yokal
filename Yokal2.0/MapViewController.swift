@@ -45,6 +45,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, postFetche
             
             
             tipAnnotation.post.traveller.getProfilePictureImage({ (profileImage) -> Void in
+                print(profileImage)
+            
                 NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                     annotationView!.image = profileImage;
                     annotationView!.clipsToBounds = true
