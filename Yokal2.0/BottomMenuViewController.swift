@@ -26,7 +26,6 @@ class BottomMenuViewController: UIViewController, UINavigationControllerDelegate
         makePostButton.clipsToBounds = true
         postFilterSegment.tintColor = UIColor.mySalmon()
         makePostButton.backgroundColor = UIColor.clearColor()
-        
         makePostButton.setBackgroundImage(UIImage(),
             forToolbarPosition: UIBarPosition.Any,
             barMetrics: UIBarMetrics.Default)
@@ -36,12 +35,21 @@ class BottomMenuViewController: UIViewController, UINavigationControllerDelegate
 
     func updateProfile () {
         if let parentCoordinator:MenuCoordinatorViewController = self.parentViewController as? MenuCoordinatorViewController {
-            parentCoordinator.profileImageView.image = UIImage(named: "defaultImage.jpg")
-            self.store.currentTraveller!.getProfilePictureImage({ (profileImage) -> Void in
+            if ((self.store.currentTraveller!.profilePictureImage) != nil){
                 NSOperationQueue.mainQueue().addOperationWithBlock({
-                    parentCoordinator.profileImageView.image = profileImage
+                    parentCoordinator.profileImageView.image = self.store.currentTraveller!.profilePictureImage;
                 })
-            })
+            }
+            else {
+                parentCoordinator.profileImageView.image = UIImage(named: "defaultImage.jpg")
+                self.store.currentTraveller!.getProfilePictureImage({ (profileImage) -> Void in
+                    if ((profileImage) != nil) {
+                        NSOperationQueue.mainQueue().addOperationWithBlock({
+                            parentCoordinator.profileImageView.image = profileImage
+                        })
+                    }
+                })
+            }
         }
     }
     

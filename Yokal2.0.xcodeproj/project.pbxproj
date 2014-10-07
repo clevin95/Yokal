@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F0C558A19D65F310084F377 /* FacebookAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0C558919D65F310084F377 /* FacebookAPIClient.swift */; };
 		6F0C6766197C77890093C8D7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0C6765197C77890093C8D7 /* Post.swift */; };
 		6F0C6768197CA81D0093C8D7 /* MakePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0C6767197CA81D0093C8D7 /* MakePostViewController.swift */; };
-		6F2816EC1989F120006FB8F1 /* Traveller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2816EB1989F120006FB8F1 /* Traveller.swift */; };
 		6F2C6B9419858028000F2460 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2C6B9319858028000F2460 /* SignUpViewController.swift */; };
 		6F2C6B9619858BE4000F2460 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2C6B9519858BE4000F2460 /* LoginViewController.swift */; };
 		6F2C6B9819858E26000F2460 /* CentralLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2C6B9719858E26000F2460 /* CentralLoginViewController.swift */; };
@@ -39,6 +39,7 @@
 		6F61B591198455ED000212BB /* CustomContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F61B590198455ED000212BB /* CustomContainerView.swift */; };
 		6F642C1E19940875003ADA0B /* LoginAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F642C1D19940875003ADA0B /* LoginAnimatedTransitioning.swift */; };
 		6F642C2019940893003ADA0B /* LoginTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F642C1F19940893003ADA0B /* LoginTransitioningDelegate.swift */; };
+		6F7096BF19D5BEC40001A5F5 /* LoginWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7096BE19D5BEC40001A5F5 /* LoginWebViewController.swift */; };
 		6F75DB201985EFA50054EE4D /* backgroundScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F75DB1F1985EFA50054EE4D /* backgroundScreen.png */; };
 		6F75DB2219868B550054EE4D /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F75DB2119868B550054EE4D /* ColorScheme.swift */; };
 		6F9303A01998EABC00994455 /* BebasNeue Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6F93039F1998EABC00994455 /* BebasNeue Book.ttf */; };
@@ -55,6 +56,7 @@
 		6FCBAB9A19994C96005100E7 /* friends.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FCBAB9919994C96005100E7 /* friends.png */; };
 		6FCBAB9C19994CAA005100E7 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FCBAB9B19994CAA005100E7 /* user.png */; };
 		6FCBAB9E19994CB6005100E7 /* globe_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FCBAB9D19994CB6005100E7 /* globe_1.png */; };
+		6FD53ADE19DC803500296A70 /* Traveller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD53ADD19DC803500296A70 /* Traveller.swift */; };
 		6FD685F119D1B2560074C192 /* TravellerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD685F019D1B2560074C192 /* TravellerExtension.swift */; };
 		6FE65527198ED0F60071197D /* PostDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE65526198ED0F60071197D /* PostDisplayViewController.swift */; };
 		6FF2BFEE1982973100CB9B8A /* BottomMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF2BFED1982973100CB9B8A /* BottomMenuViewController.swift */; };
@@ -75,9 +77,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6F0C558919D65F310084F377 /* FacebookAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookAPIClient.swift; sourceTree = "<group>"; };
 		6F0C6765197C77890093C8D7 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		6F0C6767197CA81D0093C8D7 /* MakePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakePostViewController.swift; sourceTree = "<group>"; };
-		6F2816EB1989F120006FB8F1 /* Traveller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Traveller.swift; path = ../Traveller.swift; sourceTree = "<group>"; };
 		6F2C6B9319858028000F2460 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		6F2C6B9519858BE4000F2460 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6F2C6B9719858E26000F2460 /* CentralLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralLoginViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		6F61B590198455ED000212BB /* CustomContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomContainerView.swift; path = ../CustomContainerView.swift; sourceTree = "<group>"; };
 		6F642C1D19940875003ADA0B /* LoginAnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginAnimatedTransitioning.swift; sourceTree = "<group>"; };
 		6F642C1F19940893003ADA0B /* LoginTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginTransitioningDelegate.swift; path = ../LoginTransitioningDelegate.swift; sourceTree = "<group>"; };
+		6F7096BE19D5BEC40001A5F5 /* LoginWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginWebViewController.swift; sourceTree = "<group>"; };
 		6F75DB1F1985EFA50054EE4D /* backgroundScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundScreen.png; sourceTree = "<group>"; };
 		6F75DB2119868B550054EE4D /* ColorScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
 		6F93039F1998EABC00994455 /* BebasNeue Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BebasNeue Book.ttf"; sourceTree = "<group>"; };
@@ -126,6 +129,7 @@
 		6FCBAB9919994C96005100E7 /* friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friends.png; sourceTree = "<group>"; };
 		6FCBAB9B19994CAA005100E7 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		6FCBAB9D19994CB6005100E7 /* globe_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globe_1.png; sourceTree = "<group>"; };
+		6FD53ADD19DC803500296A70 /* Traveller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Traveller.swift; sourceTree = "<group>"; };
 		6FD685F019D1B2560074C192 /* TravellerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravellerExtension.swift; sourceTree = "<group>"; };
 		6FE65526198ED0F60071197D /* PostDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDisplayViewController.swift; sourceTree = "<group>"; };
 		6FF2BFED1982973100CB9B8A /* BottomMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomMenuViewController.swift; sourceTree = "<group>"; };
@@ -234,15 +238,16 @@
 			isa = PBXGroup;
 			children = (
 				6F642C1F19940893003ADA0B /* LoginTransitioningDelegate.swift */,
+				6F4C9323197C6B4C00956532 /* APIClient.swift */,
+				6F0C558919D65F310084F377 /* FacebookAPIClient.swift */,
+				6F4C9320197C6B4C00956532 /* DataStore.swift */,
 				6F642C1D19940875003ADA0B /* LoginAnimatedTransitioning.swift */,
 				6F0C6765197C77890093C8D7 /* Post.swift */,
-				6F2816EB1989F120006FB8F1 /* Traveller.swift */,
+				6FD53ADD19DC803500296A70 /* Traveller.swift */,
 				6FD685F019D1B2560074C192 /* TravellerExtension.swift */,
 				6FB3B43919847F54002EFD88 /* TipAnnotation.swift */,
 				6F4C931F197C6B4C00956532 /* PostAnnotation.swift */,
 				6F9EEF681981600D0038EFB1 /* SearchResultsFinder.swift */,
-				6F4C9323197C6B4C00956532 /* APIClient.swift */,
-				6F4C9320197C6B4C00956532 /* DataStore.swift */,
 				6F4C9321197C6B4C00956532 /* PostFetcher.swift */,
 				6F75DB2119868B550054EE4D /* ColorScheme.swift */,
 				6F9DA6A91991A2A90091F04E /* keys.swift */,
@@ -264,6 +269,7 @@
 				6FF2BFF11982B32C00CB9B8A /* MiddleMenuViewController.swift */,
 				6FF2BFF31982B33C00CB9B8A /* RightMenuViewController.swift */,
 				6F2C6B9719858E26000F2460 /* CentralLoginViewController.swift */,
+				6F7096BE19D5BEC40001A5F5 /* LoginWebViewController.swift */,
 				6F2C6B9319858028000F2460 /* SignUpViewController.swift */,
 				6F2C6B9519858BE4000F2460 /* LoginViewController.swift */,
 			);
@@ -417,12 +423,14 @@
 				6FB75CF219800E3500208FB8 /* MenuContainer.swift in Sources */,
 				6F4C9325197C6B4C00956532 /* DataStore.swift in Sources */,
 				6F642C1E19940875003ADA0B /* LoginAnimatedTransitioning.swift in Sources */,
+				6FD53ADE19DC803500296A70 /* Traveller.swift in Sources */,
 				6F61B591198455ED000212BB /* CustomContainerView.swift in Sources */,
 				6FC5A9AB199EA317009DFA53 /* PostCollectionViewCell.swift in Sources */,
 				6F2C6B9419858028000F2460 /* SignUpViewController.swift in Sources */,
 				6F4C9326197C6B4C00956532 /* PostFetcher.swift in Sources */,
 				6F642C2019940893003ADA0B /* LoginTransitioningDelegate.swift in Sources */,
 				6F4C92FF197C678C00956532 /* Yokal2_0.xcdatamodeld in Sources */,
+				6F0C558A19D65F310084F377 /* FacebookAPIClient.swift in Sources */,
 				6F2C6B9819858E26000F2460 /* CentralLoginViewController.swift in Sources */,
 				6FF2BFF01982B31F00CB9B8A /* LeftMenuViewController.swift in Sources */,
 				6FE65527198ED0F60071197D /* PostDisplayViewController.swift in Sources */,
@@ -431,7 +439,7 @@
 				6F2C6B9619858BE4000F2460 /* LoginViewController.swift in Sources */,
 				6F4C92FC197C678C00956532 /* AppDelegate.swift in Sources */,
 				6FD685F119D1B2560074C192 /* TravellerExtension.swift in Sources */,
-				6F2816EC1989F120006FB8F1 /* Traveller.swift in Sources */,
+				6F7096BF19D5BEC40001A5F5 /* LoginWebViewController.swift in Sources */,
 				6FF2BFF41982B33C00CB9B8A /* RightMenuViewController.swift in Sources */,
 				6FF2BFEE1982973100CB9B8A /* BottomMenuViewController.swift in Sources */,
 				6F0C6768197CA81D0093C8D7 /* MakePostViewController.swift in Sources */,

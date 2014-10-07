@@ -1,11 +1,53 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Login Web View Controller-->
+        <scene sceneID="fYa-4g-6Fy">
+            <objects>
+                <viewController id="wEX-bJ-Y2m" customClass="LoginWebViewController" customModule="Yokal2_0" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3fK-9g-dgM"/>
+                        <viewControllerLayoutGuide type="bottom" id="jrP-wB-lJb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5bP-WR-Rte">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9i-3n-s8W">
+                                <rect key="frame" x="0.0" y="44" width="320" height="436"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NhI-ly-zGe">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem title="Item" id="Ec6-Sx-jpS"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="U9i-3n-s8W" secondAttribute="centerX" id="BG1-SW-5Ct"/>
+                            <constraint firstAttribute="width" secondItem="U9i-3n-s8W" secondAttribute="width" id="MU6-FO-owJ"/>
+                            <constraint firstAttribute="centerX" secondItem="NhI-ly-zGe" secondAttribute="centerX" id="RSD-Ge-dBE"/>
+                            <constraint firstItem="jrP-wB-lJb" firstAttribute="top" secondItem="U9i-3n-s8W" secondAttribute="bottom" id="Wdz-Ni-x7x"/>
+                            <constraint firstItem="NhI-ly-zGe" firstAttribute="top" secondItem="U9i-3n-s8W" secondAttribute="top" constant="-44" id="Xl2-BE-P7p"/>
+                            <constraint firstItem="NhI-ly-zGe" firstAttribute="width" secondItem="5bP-WR-Rte" secondAttribute="width" id="hEQ-JK-J85"/>
+                            <constraint firstItem="NhI-ly-zGe" firstAttribute="top" secondItem="3fK-9g-dgM" secondAttribute="bottom" constant="-20" id="sda-GW-bBY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="signInWebView" destination="U9i-3n-s8W" id="AqF-jd-GK1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NxE-TH-Rci" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1550" y="567"/>
+        </scene>
         <!--Central Login View Controller-->
         <scene sceneID="ywM-7a-Itw">
             <objects>
@@ -18,39 +60,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" alpha="0.84999999999999987" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAQ-2h-qNq">
-                                <rect key="frame" x="8" y="150" width="147" height="36"/>
-                                <color key="backgroundColor" red="0.94901960784313721" green="0.41960784313725491" blue="0.46274509803921571" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Sign Up">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEF-Nj-09L">
+                                <rect key="frame" x="8" y="160" width="304" height="43"/>
+                                <state key="normal" title="Login With Facebook">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="signUpTapped:" destination="oOP-J8-U1O" eventType="touchUpInside" id="l2j-tZ-y0G"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5M-zd-JJV">
-                                <rect key="frame" x="165" y="150" width="147" height="36"/>
-                                <color key="backgroundColor" red="0.62745098039215685" green="1" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="loginTapped:" destination="oOP-J8-U1O" eventType="touchUpInside" id="Q0c-or-rkx"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Yokal_Logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="bTE-gh-Vpw">
-                                <rect key="frame" x="98" y="20" width="112" height="110"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2g-Xg-Ycx">
-                                <rect key="frame" x="8" y="328" width="304" height="46"/>
-                                <color key="backgroundColor" red="0.63529411759999999" green="0.86274509799999999" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Submit">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="submitTapped:" destination="oOP-J8-U1O" eventType="touchUpInside" id="DQS-3b-2ER"/>
+                                    <action selector="facebookLoginTapped:" destination="oOP-J8-U1O" eventType="touchUpInside" id="ga2-6i-6c4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -59,16 +75,15 @@
                     <navigationItem key="navigationItem" id="Z1e-3l-wG5"/>
                     <connections>
                         <outlet property="emailField" destination="kR8-TB-oyy" id="aPA-mU-eM3"/>
-                        <outlet property="loginButton" destination="x5M-zd-JJV" id="OIn-Fl-ok7"/>
                         <outlet property="nameField" destination="cg4-2W-xxv" id="khV-HE-IZm"/>
                         <outlet property="passwordAgainField" destination="FmF-uw-Yv0" id="O2j-UF-DnY"/>
                         <outlet property="passwordField" destination="OSJ-bf-h9t" id="d0o-mQ-FBC"/>
-                        <outlet property="signUpButton" destination="kAQ-2h-qNq" id="xU8-Q7-PJI"/>
+                        <segue destination="wEX-bJ-Y2m" kind="modal" identifier="segueToLoginWebView" id="niQ-PY-AMi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ntT-1Y-Lsc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1550" y="1207"/>
+            <point key="canvasLocation" x="-974" y="596"/>
         </scene>
         <!--Central View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -690,7 +705,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Yokal_Logo.png" width="508" height="508"/>
         <image name="sriLanka.jpg" width="720" height="960"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

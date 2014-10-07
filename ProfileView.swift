@@ -10,6 +10,8 @@ import UIKit
 
 class ProfileView: UIView {
     @IBOutlet weak var piChart: UIView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var townLabel: UILabel!
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         let xibView:UIView = NSBundle.mainBundle().loadNibNamed("ProfileView", owner: self, options: nil)[0] as UIView

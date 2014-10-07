@@ -30,6 +30,8 @@ class CentralLoginViewController: UIViewController {
         effectView.frame = view.frame
         effectView.layer.cornerRadius = 10
         self.view.insertSubview(effectView, atIndex: 0)
+        
+        /*
         scroller.showsHorizontalScrollIndicator = false
         
         let scrollerHeight = view.frame.height / 1.5;
@@ -47,7 +49,7 @@ class CentralLoginViewController: UIViewController {
         scroller.pagingEnabled = true;
         signUpView.addSubview(signUpController!.view)
         loginView.addSubview(loginController!.view)
-        
+        */
     
         /*
         
@@ -63,6 +65,20 @@ class CentralLoginViewController: UIViewController {
         view.insertSubview(effectView, atIndex: 1)
 */
         // Do any additional setup after loading the view.
+    }
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        let store = DataStore.sharedInstance
+        if ((store.currentTraveller) != nil) {
+            self.dismissViewControllerAnimated(true, completion:nil)
+        }
+    }
+    
+    @IBAction func facebookLoginTapped(sender: AnyObject) {
+        performSegueWithIdentifier("segueToLoginWebView", sender: self)
+//        APIClient.loginWithFacebook()
     }
     
     override func viewDidLayoutSubviews() {
@@ -97,12 +113,19 @@ class CentralLoginViewController: UIViewController {
             loginController!.submitTapped()
         }
     }
-    
+
     @IBAction func loginTapped(sender: AnyObject) {
         UIView.animateWithDuration(0.2, animations: {
             self.scroller.contentOffset = CGPoint(x: self.view.frame.width, y: 0)
         })
     }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let nextController:LoginWebViewController = segue.destinationViewController as? LoginWebViewController {
+            let urlString = "https://graph.facebook.com/oauth/authorize?client_id=579052432201400&redirect_uri=http://www.facebook.com/connect/login_success.html&scope=email,user_photos&type=user_agent&display=touch"
+            nextController.urlString = urlString
+        }
+    }
+    
 
     /*
     // MARK: - Navigation

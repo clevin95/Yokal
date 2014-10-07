@@ -7,8 +7,14 @@
 //
 
 import UIKit
-let homeURL:String = "http://localhost:8080/api/" // "http://yokalrest.herokuapp.com/api/" //"http://beingthere.herokuapp.com/"
+let homeURL:String = "http://yokalrest.herokuapp.com/api/" //"http://beingthere.herokuapp.com/" "http://localhost:8080/api/" //
 class APIClient: NSObject {
+    class func loginWithFacebook () {
+        let urlString:String = "https://www.facebook.com/dialog/oauth?client_id=579052432201400&grant_type=client_credentials&redirect_uri=http://www.facebook.com/connect/login_success.html";
+        let url:NSURL = NSURL(string: urlString);
+        UIApplication.sharedApplication().openURL(url);
+    }
+    
     class func getCloudPosts (arrayPassback:((NSArray) -> Void)){
         let url = NSURL(string: homeURL + "travellers/posts")
         let task = NSURLSession.sharedSession().dataTaskWithURL(url) {(data, response, error) in
@@ -52,7 +58,7 @@ class APIClient: NSObject {
     class func validateTraveller (email:String, password:String, arrayPassback:((NSDictionary?) -> Void)){
         let travellerDataString = "email=" + email + "&password=" + password
         let url = NSURL(string: homeURL + "travellers?" + travellerDataString)
-        print(url)
+//        print(url)
         var session:NSURLSession = NSURLSession.sharedSession()
         var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
         let validationDictionary = ["email" : email, "password" : password]
@@ -64,7 +70,7 @@ class APIClient: NSObject {
         let task = session.dataTaskWithRequest(request, completionHandler: {(data,response,error) in
             if let outputDictionary:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? NSDictionary{
                 if (outputDictionary["message"] != nil){
-                        print(outputDictionary["message"])
+//                        print(outputDictionary["message"])
                         arrayPassback(nil)
                     }
                 else {
@@ -101,16 +107,20 @@ class APIClient: NSObject {
         var error:NSError?
         var request:NSMutableURLRequest = NSMutableURLRequest(URL: NSURL(string: homeURL + "travellers"))
         request.HTTPMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.HTTPBody = NSJSONSerialization.dataWithJSONObject(travellerDictionary, options: nil, error: &error)
         if (error != nil) {
             println("\(error?.localizedDescription)")
             return
         }
         let task = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) in
+            
+            
             if ((error) != nil){
                 print(error)
             }else {
                 let responseID:NSDictionary? = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as NSDictionary?
+                
                 print(responseID)
                 let userID:NSNumber = responseID!["unique_id"] as NSNumber
                 //let userID:Int = userID
@@ -131,6 +141,8 @@ class APIClient: NSObject {
         request.addValue("image/jpeg", forHTTPHeaderField: "Content-Type")
         print(error)
         let task = session.dataTaskWithRequest(request, completionHandler: {(data,response,error) in
+            
+            
             successPassback()
             })
         task.resume()
@@ -145,12 +157,30 @@ class APIClient: NSObject {
         print(error)
         let task = session.dataTaskWithRequest(request, completionHandler: {(data,response,error) in
             print(error)
-            print(data)
+//            print(data)
             if (error != nil) {
                 print(error)
                 successPassback(nil)
             }
             successPassback(data)
+        })
+        task.resume()
+    }
+    
+    class func checkforUserWithID(facebook_id:String, withCompletion:((travellerDictionary:NSDictionary?) -> Void)) {
+        let url = NSURL(string: homeURL + "travellers/" + facebook_id + "/facebook")
+        var session:NSURLSession = NSURLSession.sharedSession()
+        var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "GET"
+        let task = session.dataTaskWithRequest(request, completionHandler: {(data,response,error) in
+            if let outputDictionary:NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? NSDictionary{
+                if (outputDictionary["message"] != nil){
+                    withCompletion(travellerDictionary: nil)
+                }
+                else {
+                    withCompletion(travellerDictionary: outputDictionary);
+                }
+            }
         })
         task.resume()
     }

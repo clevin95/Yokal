@@ -1,4 +1,4 @@
-//
+ //
 //  DataStore.swift
 //  YokalSwift
 //
@@ -39,7 +39,6 @@ class DataStore: NSObject {
             }
             NSNotificationCenter.defaultCenter().postNotificationName("processedTravellers", object:nil)
             })
-       
     }
     
     func convertPostDicArray(postDicArray:NSArray) {
@@ -91,17 +90,29 @@ class DataStore: NSObject {
     
     
     
-    func createTravellerWithContentDictionary (travellerDictionary:[String:String], completed:(() -> Void)){
+    func createTravellerWithContentDictionary (travellerDictionary:NSDictionary, completed:(() -> Void)){
         let entityDescription = NSEntityDescription.entityForName("Traveller", inManagedObjectContext: managedObjectContext)
         let newTraveller = Traveller(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
         newTraveller.name = travellerDictionary["username"] as String!
         newTraveller.password = travellerDictionary["password"] as String!
         newTraveller.email = travellerDictionary["email"] as String!
+        newTraveller.facebook_id = travellerDictionary["facebook_id"] as String?
+        newTraveller.profilePicture = travellerDictionary["profileImage"] as NSData?
+        newTraveller.profilePictureImage = UIImage(data: newTraveller.profilePicture!);
         
-        APIClient.createTravellerRemotely(travellerDictionary, {(passbackID:NSString) in
+        var travellerStringDictionary:[String:String] = [:]
+        travellerStringDictionary["username"] = newTraveller.name
+        travellerStringDictionary["facebook_id"] = newTraveller.facebook_id
+        travellerStringDictionary["email"] = newTraveller.email
+
+        APIClient.createTravellerRemotely(travellerStringDictionary, {(passbackID:NSString) in
             newTraveller.uniqueID = passbackID
             self.currentTraveller = newTraveller
-            NSNotificationCenter.defaultCenter().postNotificationName("updateProfile", object:self.currentTraveller);
+            APIClient.updateRemoteProfileImage(self.currentTraveller!, successPassback: { () -> Void in
+                
+                NSNotificationCenter.defaultCenter().postNotificationName("updateProfile", object:self.currentTraveller);
+                
+            })
             completed()
             })
     }
@@ -133,6 +144,40 @@ class DataStore: NSObject {
         }
     }
     
+    func validateTravellerForFacebookID(facebook_id:String, successBlock:((Bool) -> Void)){
+        let travellerFetch:NSFetchRequest = NSFetchRequest(entityName: "Traveller")
+        travellerFetch.returnsObjectsAsFaults = false
+        let sortById:NSSortDescriptor = NSSortDescriptor(key: "email", ascending: true)
+        let emailPredicate:NSPredicate = NSPredicate(format: "facebook_id == %@",facebook_id)
+        travellerFetch.predicate = emailPredicate
+        var error:NSError?
+        let fetchedTraveller:NSArray = managedObjectContext.executeFetchRequest(travellerFetch, error: &error)!
+        if (fetchedTraveller.count == 1){
+            currentTraveller = fetchedTraveller[0] as? Traveller
+            NSNotificationCenter.defaultCenter().postNotificationName("updateProfile", object:self.currentTraveller)
+            successBlock(true)
+        }
+        else {
+            APIClient.checkforUserWithID(facebook_id, withCompletion: { (travellerDictionary) -> Void in
+                print(travellerDictionary);
+                if (travellerDictionary != nil){
+                    self.currentTraveller = self.createTravellerFromDictionary(travellerDictionary!)
+                    
+                    APIClient.getProfileImageForTravellerID(self.currentTraveller!.uniqueID!, successPassback: { (imageData) -> Void in
+                        self.currentTraveller!.profilePicture = imageData
+                        self.currentTraveller?.profilePictureImage = UIImage(data: imageData!)
+                        NSNotificationCenter.defaultCenter().postNotificationName("updateProfile", object:self.currentTraveller)
+                    })
+                    NSNotificationCenter.defaultCenter().postNotificationName("updateProfile", object:self.currentTraveller)
+                    successBlock(true)
+                }
+                else {
+                    successBlock(false)
+                }
+            })
+        }
+    }
+    
     func createTravellerFromDictionary(travellerDictionary:NSDictionary) -> Traveller {
         
         
@@ -141,9 +186,7 @@ class DataStore: NSObject {
         signedInTraveller.name = travellerDictionary["username"] as? NSString
         signedInTraveller.email = travellerDictionary["email"] as? NSString
         signedInTraveller.uniqueID = (travellerDictionary["unique_id"] as NSNumber).stringValue
-        
-    
-        
+        signedInTraveller.facebook_id = (travellerDictionary["unique_id"] as NSNumber).stringValue
         
         if let imageData:NSData = travellerDictionary["profilepicture"] as? NSData {
             //let data = NSData(base64EncodedString: imageString, options: nil)

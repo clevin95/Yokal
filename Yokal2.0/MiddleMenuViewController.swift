@@ -11,6 +11,7 @@ import UIKit
 class MiddleMenuViewController: UIViewController {
     @IBOutlet weak var flagImageView: UIImageView!
     @IBOutlet weak var profileContainer: UIScrollView!
+    weak var profileView:ProfileView?
     var delegate:MiddleMenuDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +27,7 @@ class MiddleMenuViewController: UIViewController {
         
         let rect = CGRectMake(0, 0, flagImageView.image!.size.width, flagImageView.image!.size.height);
         
-        
         profileContainer.backgroundColor = UIColor.clearColor()
-        
         // image drawing code here
         let coloredImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -43,11 +42,17 @@ class MiddleMenuViewController: UIViewController {
     
     func addProfile () {
         let profileRect:CGRect = CGRectMake(0, 0, profileContainer.frame.width, profileContainer.frame.height * 2.4)
-        let profileView:ProfileView = ProfileView(frame: profileRect)
+        
+        let tempProfileView:ProfileView = ProfileView(frame: profileRect)
+
+        ProfileView.initialize()
+        print(profileView);
+        
         profileContainer.clipsToBounds = true
-        profileContainer.contentSize = profileView.frame.size
-        profileView.piChart.layer.cornerRadius = profileView.piChart.frame.height / 2 - 20
-        profileContainer.addSubview(profileView)
+        profileContainer!.contentSize = profileRect.size
+        tempProfileView.piChart.layer.cornerRadius = tempProfileView.piChart.frame.height / 2 - 20
+        profileContainer.addSubview(tempProfileView)
+        profileView = tempProfileView;
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,7 +71,7 @@ class MiddleMenuViewController: UIViewController {
     func updateProfile (){
         NSOperationQueue.mainQueue().addOperationWithBlock({
             let store:DataStore = DataStore.sharedInstance
-            //self.nameLabel.text = store.currentTraveller!.name
+            self.profileView!.nameLabel.text = store.currentTraveller!.name
         })
     }
 

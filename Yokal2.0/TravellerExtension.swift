@@ -33,4 +33,7 @@ extension Traveller{
             imagePassback(nil)
         }
     }
+    
+    func setUpTraveller () {
+    }
 }
