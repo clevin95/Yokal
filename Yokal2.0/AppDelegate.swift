@@ -44,5 +44,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let store:DataStore = DataStore.sharedInstance
         store.saveContext()
     }
+    func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow) -> Int {
+        let orientation:UInt = UIInterfaceOrientationMask.Portrait.toRaw()
+        return Int(orientation)
+    }
+    
+    
+
+
 }
 
